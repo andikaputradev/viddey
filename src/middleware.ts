@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server'
 
-export const runtime = 'edge'
+// FIXED: Mengubah runtime ke 'experimental-edge' agar lolos regulasi build Next.js 16
+export const runtime = 'experimental-edge'
 
 const SECURITY_HEADERS: Record<string, string> = {
   'X-Content-Type-Options': 'nosniff',
