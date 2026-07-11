@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     serverActions: {
-      bodySizeLimit: process.env.MAX_UPLOAD_SIZE ?? '2gb',
+      bodySizeLimit: (process.env.MAX_UPLOAD_SIZE ?? '2gb') as any,
     },
   },
   async headers() {
