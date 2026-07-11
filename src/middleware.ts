@@ -1,6 +1,5 @@
 import { type NextRequest, NextResponse } from 'next/server'
 
-// FIXED: Mengubah runtime ke 'experimental-edge' agar lolos regulasi build Next.js 16
 export const runtime = 'experimental-edge'
 
 const SECURITY_HEADERS: Record<string, string> = {
@@ -16,7 +15,8 @@ const SECURITY_HEADERS: Record<string, string> = {
     "font-src 'self' https://fonts.gstatic.com; " +
     "media-src 'self' blob:; " +
     "img-src 'self' data: blob:; " +
-    "connect-src 'self'; " +
+    // FIXED: Mengizinkan frontend melakukan fetch/koneksi ke target REST API di Railway
+    "connect-src 'self' https://just-grace-production-da72.up.railway.app; " +
     "frame-ancestors 'none';",
 }
 
